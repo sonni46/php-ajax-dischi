@@ -16,7 +16,9 @@ include __DIR__ . "/data/db.php"
 <body class="bg-black">
     <div class="container-fluid">
         <div>
-
+            <div>
+                
+            </div>
         </div>
         <div class="container">
             <div class="albums d-flex flex-wrap">
