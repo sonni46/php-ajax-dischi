@@ -26,7 +26,6 @@ const app = new Vue ({
                         this.generi.push(res.data[i].genre)
                 }
             }
-            
         });
         },
     },
@@ -42,11 +41,11 @@ const app = new Vue ({
               if(this.selected == "All"){
                 return true
               }
-              else if (el.genre == this.selected) {
+              else if (this.selected == el.genre) {
                 return true
               }
             })
             return filterDisc
-          }
+        }
     }
 });

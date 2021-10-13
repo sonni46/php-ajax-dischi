@@ -11,7 +11,7 @@
 </head>
 <body class="bg-black">
     <div class="container-fluid" id="root">
-        <div>
+        <div class="logo">
             <div>
                 <img src="https://upload.wikimedia.org/wikipedia/commons/7/75/Spotify_icon.png" alt="">
             </div>
