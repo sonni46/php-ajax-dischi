@@ -4,13 +4,49 @@ const app = new Vue ({
     el:"#root",
     data : {
         dischi : [],
+        generi : [],
+        selected : "All"
     },
-    created() {
-        axios.get("http://localhost:88/Lezione4/php-ajax-dischi/data/server.php")
+    methods: {
+        axios () {
+            axios.get("data/server.php")
         .then((res) => {
             console.log(res.data);
             this.dischi = res.data;
-            console.log(this.dischi);
-        })
+            // console.log(this.dischi);
+
+        });
+        },
+        genreSerch(){
+            axios.get("data/server.php")
+        .then((res) => {
+            console.log(res.data);
+            for(let i = 0; i < res.data.length; i++) {
+                if (!this.generi.includes(res.data[i].genre)){
+                        this.generi.push(res.data[i].genre)
+                }
+            }
+            
+        });
+        },
+    },
+    created() {
+        this.axios()
+        this.genreSerch()
+        this.albumFilter ()
+    },
+    computed : {
+        genresHeaderFilter() {
+            let filterDisc = this.dischi.filter((el)=>{
+              console.log(el.genre)
+              if(this.selected == "All"){
+                return true
+              }
+              else if (el.genre == this.selected) {
+                return true
+              }
+            })
+            return filterDisc
+          }
     }
 });

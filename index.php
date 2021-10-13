@@ -13,7 +13,13 @@
     <div class="container-fluid" id="root">
         <div>
             <div>
-                
+                <img src="https://upload.wikimedia.org/wikipedia/commons/7/75/Spotify_icon.png" alt="">
+            </div>
+            <div>
+                <select v-model="selected">
+                    <option value="All">All</option>
+                    <option v-for="genere in generi" :value="genere">{{genere}}</option>
+                </select>
             </div>
         </div>
         <div class="container">
@@ -36,7 +42,9 @@
 
                  <!-- metodo con php  -->
 
-                    <div class='album' v-for="disco in dischi">
+                 <!-- metodo vue.js  -->
+
+                    <div class='album' v-for="disco in genresHeaderFilter">
                         <img :src="disco.poster" alt="">
                         <div class='info'>
                             <h2>{{disco.title}}</h2>
@@ -44,6 +52,8 @@
                             <h4>{{disco.year}}</h4>
                         </div>
                     </div>
+
+                    <!-- metodo vue.js  -->
             </div>
         </div>
     </div>
